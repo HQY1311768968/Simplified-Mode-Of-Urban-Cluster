@@ -84,7 +84,7 @@ def DefineTimeHistoryAnalysis(StoryNumber,StoryH):
     fid.write('\n ')
     
     fid.write('\n# Define dynamic analysis parameters')
-    fid.write('\ndt_analysis = 0.01')
+    fid.write('\ndt_analysis = float(dt)/8')
     fid.write('\n ')
     
     fid.write('\n# Run Dynamic Analysis Collapse Solver ')

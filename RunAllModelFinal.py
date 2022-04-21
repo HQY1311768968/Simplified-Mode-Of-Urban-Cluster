@@ -11,7 +11,11 @@ import openseespy.opensees as op
 import pickle
 op.wipe()
 
-for ii in range(780,800):
+import pandas as pd
+
+
+for ii in range(929,930):
+
 
     # Change variable ID and the number of cycles to run the time history analysis for the required floor
     #ID = [85 4 68 28 129 31 15 33 1 112 537 6 7 709 41 151 179 736 747 755]
@@ -65,7 +69,7 @@ for ii in range(780,800):
     groundMotionIDsFile.close()
 
     # Define an array of run IDs 
-    numberOfRunIDs = 44 
+    numberOfRunIDs = 29
 
     # Load the number of points of the ground motion  
     groundMotionNumPointsFile = open(pathToTextFile+''+'/GMNumPoints.txt')
@@ -85,11 +89,12 @@ for ii in range(780,800):
     groundMotionScaleFactors = groundMotionScaleFactors.split('\n')
     groundMotionScaleFactorsFile.close()
     
-    AllScales = [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+    #AllScales = [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+    AllScales = [140]
     
     # Running the entire model
-    for runNumber in range(1,numberOfRunIDs+1):
-       
+    for runNumber in range(29,numberOfRunIDs+1):
+   
         global groundMotionID
         global groundMotiondt
         global groundMotionSF
@@ -102,7 +107,7 @@ for ii in range(780,800):
         numPoints = groundMotionNumPoints[runNumber - 1]
         
         for scale in AllScales:
-            
+        
             f = open('groundMotionID.dat','wb')
             pickle.dump(groundMotionID, f)
             f.close()
@@ -129,9 +134,9 @@ for ii in range(780,800):
             %run EigenvalueAnalysis
             %run OutputPath
             %run TimeHistoryAnalysis
+            
+            op.wipe()
         
-        op.wipe()
-    
 
     
     

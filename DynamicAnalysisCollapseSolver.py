@@ -91,7 +91,7 @@ def DynamicAnalysisCollapseSolvers(dt, dt_analysis, GMtime, NStories, DriftLimit
                 
             # Get Control Time inside the loop
             controlTime = op.getTime()
-            print("Currently at time controlTime out of GMtime")
+            print("Currently at time "+''+str(controlTime)+''+' out of '+''+str(GMtime))
      
             if  ok != 0:
                 print(" Run Newton 100 steps with 1/2 of step..")

@@ -52,25 +52,25 @@ def DefineOutputPath(StoryNumber,BuildingID):
     fid.write("'-dof', 1, 'disp')")
     fid.write('\n ')
     
-    #fid.write('\n# record floor acceleration')
-    #fid.write("\nGMfile = baseDir+''+'/GroundMotionAccel/'+''+EQDir+''+'.txt'")
-    #fid.write('\ndt = pickle.load(open("groundMotiondt.dat", "rb"))')
-    #fid.write('\ngroundMotionSF = pickle.load(open("groundMotionSF.dat", "rb")) ')
-    #fid.write('\ng = 9.8')
-    #fid.write('\nScalefact = float(groundMotionSF)*g')
-    #fid.write("\nop.timeSeries('Path', 1, '-dt', float(dt), '-filePath', GMfile, '-factor', Scalefact)")
-    #fid.write("\nop.recorder('EnvelopeNode', '-file', pathToOutFile+''+'/Accel-Story.out', '-timeSeries', 1, '-time', '-node', ")
-    #for ii in range(1,StoryNumber+1):
-    #    fid.write('1'+''+str(ii)+''+', ')
-    #fid.write("'-dof', 1, 'accel')")
-    #fid.write('\n ')
+    fid.write('\n# record floor acceleration')
+    fid.write("\nGMfile = baseDir+''+'/GroundMotionAccel/'+''+EQDir+''+'.txt'")
+    fid.write('\ndt = pickle.load(open("groundMotiondt.dat", "rb"))')
+    fid.write('\ngroundMotionSF = pickle.load(open("groundMotionSF.dat", "rb")) ')
+    fid.write('\ng = 9.8')
+    fid.write('\nScalefact = float(groundMotionSF)*g')
+    fid.write("\nop.timeSeries('Path', 1, '-dt', float(dt), '-filePath', GMfile, '-factor', Scalefact)")
+    fid.write("\nop.recorder('EnvelopeNode', '-file', pathToOutFile+''+'/Accel-Story.out', '-timeSeries', 1, '-time', '-node', ")
+    for ii in range(1,StoryNumber+1):
+        fid.write('1'+''+str(ii)+''+', ')
+    fid.write("'-dof', 1, 'accel')")
+    fid.write('\n ')
     
-    #fid.write('\n# record floor velocity')
-    #fid.write("\nop.recorder('EnvelopeNode', '-file', pathToOutFile+''+'/Vel-Story.out', '-time', '-node', ")
-    #for ii in range(1,StoryNumber+1):
-    #    fid.write('1'+''+str(ii)+''+', ')
-    #fid.write("'-dof', 1, 'vel')")
-    #fid.write('\n ')
+    fid.write('\n# record floor velocity')
+    fid.write("\nop.recorder('EnvelopeNode', '-file', pathToOutFile+''+'/Vel-Story.out', '-time', '-node', ")
+    for ii in range(1,StoryNumber+1):
+        fid.write('1'+''+str(ii)+''+', ')
+    fid.write("'-dof', 1, 'vel')")
+    fid.write('\n ')
     
     #fid.write('\n# record base shear reactions')
     #fid.write("\nop.recorder('Node', '-file', pathToOutFile+''+'/Vbase.out', '-node', 10, '-dof', 1, 'reaction')")
